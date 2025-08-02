@@ -25,32 +25,18 @@ const Navbar = () => {
         label: "Luxury Brands",
         type: "group",
         children: [
-          { key: "rolex", label: "Rolex" },
-          { key: "omega", label: "Omega" },
-          { key: "cartier", label: "Cartier" },
-          { key: "patek", label: "Patek Philippe" },
-        ],
-      },
-      {
-        key: "sport",
-        label: "Sport Brands",
-        type: "group",
-        children: [
-          { key: "casio", label: "Casio" },
-          { key: "seiko", label: "Seiko" },
-          { key: "citizen", label: "Citizen" },
-          { key: "garmin", label: "Garmin" },
-        ],
-      },
-      {
-        key: "fashion",
-        label: "Fashion Brands",
-        type: "group",
-        children: [
-          { key: "fossil", label: "Fossil" },
-          { key: "michael-kors", label: "Michael Kors" },
-          { key: "daniel-wellington", label: "Daniel Wellington" },
-          { key: "mvmt", label: "MVMT" },
+          {
+            key: "rolex",
+            label: <Link href={`/shop?brand=rolex`}>Rolex</Link>,
+          },
+          {
+            key: "omega",
+            label: <Link href={`/shop?brand=omega`}>Omega</Link>,
+          },
+          {
+            key: "cartier",
+            label: <Link href={`/shop?brand=cartier`}>Cartier</Link>,
+          },
         ],
       },
     ],
@@ -58,20 +44,14 @@ const Navbar = () => {
 
   const productsMenu: MenuProps = {
     items: [
-      { key: "mens", label: "Men's Watches" },
-      { key: "womens", label: "Women's Watches" },
-      { key: "smart", label: "Smart Watches" },
-      { key: "luxury", label: "Luxury Watches" },
-      { key: "sport", label: "Sport Watches" },
-      { key: "accessories", label: "Accessories" },
+      { key: "mens", label: <Link href={`/shop?gender=male`}>Man's Watch</Link> },
+      { key: "womens", label: <Link href={`/shop?gender=female`}>Woman's Watch</Link> },
     ],
   };
 
   const locatorMenu: MenuProps = {
     items: [
-      { key: "stores", label: "Store Locations" },
-      { key: "authorized", label: "Authorized Dealers" },
-      { key: "service", label: "Service Centers" },
+      { key: "stores", label: <Link href={`/store-location`}>Store Location</Link> },
     ],
   };
 
@@ -91,9 +71,9 @@ const Navbar = () => {
         <MyContainer>
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
-            <div className="flex-shrink-0">
+            <Link href={"/"} className="flex-shrink-0">
               <h1 className="text-2xl font-bold text-black">LOGO</h1>
-            </div>
+            </Link>
 
             {/* Search Bar - Hidden on mobile */}
             <div className="hidden md:flex flex-1 max-w-lg mx-8">
@@ -143,7 +123,7 @@ const Navbar = () => {
           <MyContainer>
             <div className="flex space-x-8 h-12 items-center">
               <Link
-                href="#"
+                href="/"
                 className="text-gray-700 hover:text-black font-medium"
               >
                 HOME

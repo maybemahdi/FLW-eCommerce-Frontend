@@ -77,11 +77,11 @@ const ShopByBrands = () => {
                 relative group cursor-pointer bg-white border border-gray-200 rounded-xl transition-all duration-300 hover:shadow-lg hover:border-gray-300 hover:-translate-y-1 h-[300px]`}
             >
               {/* Featured Badge */}
-              {brand.featured && (
+              {/* {brand.featured && (
                 <div className="absolute z-50 -top-2 -right-2 bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded-full">
                   FEATURED
                 </div>
-              )}
+              )} */}
 
               {/* Brand Logo */}
               <div className="flex items-center justify-center h-full w-full mb-4">

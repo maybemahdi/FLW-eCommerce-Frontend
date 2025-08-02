@@ -1,13 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import {
-  HeartOutlined,
-  HeartFilled,
-  ShoppingCartOutlined,
-} from "@ant-design/icons";
-import { message } from "antd";
 import MyButton from "@/components/ui/core/MyButton/MyButton";
+import { message } from "antd";
+import { useRouter } from "next/navigation";
 
 interface ProductCardProps {
   product: {
@@ -24,6 +19,7 @@ interface ProductCardProps {
 
 const ProductCard = ({ product, tag }: ProductCardProps) => {
   const { id, brand, model, price, originalPrice, image, isNew } = product;
+  const router = useRouter();
 
   const handleAddToCart = async () => {
     // Simulate API call
@@ -32,7 +28,7 @@ const ProductCard = ({ product, tag }: ProductCardProps) => {
   };
 
   return (
-    <div className="group bg-white rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 overflow-hidden">
+    <div className="group bg-white rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col">
       {/* Image Container */}
       <div className="relative aspect-square overflow-hidden bg-gray-50">
         {/* Badges */}
@@ -55,14 +51,17 @@ const ProductCard = ({ product, tag }: ProductCardProps) => {
 
         {/* Quick View Overlay */}
         <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300 flex items-center justify-center">
-          <button className="bg-white text-primary px-4 py-2 rounded-md font-medium opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+          <button
+            onClick={() => router.push(`/shop/${id}`)}
+            className="bg-white text-primary px-4 py-2 rounded-md font-medium opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300"
+          >
             Quick View
           </button>
         </div>
       </div>
 
       {/* Product Info */}
-      <div className="p-4">
+      <div className="p-4 flex flex-col flex-grow">
         {/* Brand */}
         <h3 className="font-bold text-primary text-sm mb-1 uppercase tracking-wide">
           {brand}
@@ -72,24 +71,25 @@ const ProductCard = ({ product, tag }: ProductCardProps) => {
         <p className="text-gray-600 text-sm mb-3 line-clamp-2">{model}</p>
 
         {/* Price */}
-        <div className="flex items-center gap-2 mb-4">
-          <span className="text-lg font-bold text-primary">
-            ₹{price.toLocaleString()}
-          </span>
-          {originalPrice && (
-            <span className="text-sm text-gray-500 line-through">
-              ₹{originalPrice.toLocaleString()}
-            </span>
-          )}
-        </div>
-
         {/* Add to Cart Button */}
-        <MyButton
-          onClick={handleAddToCart}
-          label="Add To Cart"
-          fullWidth
-          variant="filled"
-        />
+        <div className="mt-auto">
+          <div className="flex items-center gap-2 mb-4">
+            <span className="text-lg font-bold text-primary">
+              ₹{price.toLocaleString()}
+            </span>
+            {originalPrice && (
+              <span className="text-sm text-gray-500 line-through">
+                ₹{originalPrice.toLocaleString()}
+              </span>
+            )}
+          </div>
+          <MyButton
+            onClick={handleAddToCart}
+            label="Add To Cart"
+            fullWidth
+            variant="filled"
+          />
+        </div>
       </div>
     </div>
   );

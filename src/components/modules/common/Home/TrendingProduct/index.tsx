@@ -123,7 +123,7 @@ const TrendingProduct = () => {
               <p className="text-gray-600 mb-6">Model: {product.model}</p>
 
               {/* Rating & Reviews */}
-              <div className="flex items-center gap-4 mb-6">
+              {/* <div className="flex items-center gap-4 mb-6">
                 <div className="flex items-center gap-1">
                   {[...Array(5)].map((_, i) => (
                     <StarFilled key={i} className="text-yellow-400 text-sm" />
@@ -132,7 +132,7 @@ const TrendingProduct = () => {
                 <span className="text-sm text-gray-600">
                   ({product.reviews} reviews)
                 </span>
-              </div>
+              </div> */}
 
               {/* Price */}
               <div className="mb-8">
