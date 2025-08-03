@@ -442,14 +442,14 @@ const ShopPage = () => {
   return (
     <div className="min-h-screen">
       {/* Header */}
-      <div className="bg-white shadow-sm py-8">
+      <div className="bg-white shadow-sm pt-8">
         <MyContainer>
-          <h1 className="text-3xl font-bold text-gray-900 mb-6">
+          <h1 className="text-3xl font-bold text-gray-900">
             Shop Watches
           </h1>
 
           {/* Search Bar */}
-          <div className="relative max-w-2xl">
+          {/* <div className="relative max-w-2xl">
             <input
               type="text"
               placeholder="Search for watches, brands, models..."
@@ -469,7 +469,7 @@ const ShopPage = () => {
               className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
             <SearchOutlined className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 text-xl" />
-          </div>
+          </div> */}
         </MyContainer>
       </div>
 

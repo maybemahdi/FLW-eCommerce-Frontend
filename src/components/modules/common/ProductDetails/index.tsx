@@ -2,18 +2,19 @@
 
 import MyContainer from "@/components/ui/core/MyContainer/MyContainer";
 import {
-    CheckCircleOutlined,
-    GiftOutlined,
-    SafetyOutlined,
-    ShoppingCartOutlined,
-    StarFilled,
-    ThunderboltOutlined
+  CheckCircleOutlined,
+  GiftOutlined,
+  SafetyOutlined,
+  ShoppingCartOutlined,
+  StarFilled,
+  ThunderboltOutlined,
 } from "@ant-design/icons";
 import type { TabsProps } from "antd";
 import { message, Tabs } from "antd";
 import { useState } from "react";
+import RelatedProductSection from "./RelatedProductSection";
 
-const ProductDetailsPage = ({id} : { id: string }) => {
+const ProductDetailsPage = ({ id }: { id: string }) => {
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [isAddingToCart, setIsAddingToCart] = useState(false);
@@ -356,6 +357,10 @@ const ProductDetailsPage = ({id} : { id: string }) => {
               size="large"
             />
           </div>
+        </div>
+        {/* related product section */}
+        <div className="mt-6 mb-10">
+          <RelatedProductSection productId={id} />
         </div>
       </MyContainer>
     </div>

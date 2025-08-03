@@ -52,7 +52,7 @@ const Banner = () => {
         {bannerSlides.map((slide) => (
           <SwiperSlide key={slide.id}>
             <div
-              className={`relative h-[400px] md:h-[500px] lg:[700px] xl:h-[807px] overflow-hidden`}
+              className={`relative h-[350px] md:h-[500px] lg:[650px] overflow-hidden`}
             >
               {/* Background Image */}
               <div

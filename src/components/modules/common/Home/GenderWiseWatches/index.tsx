@@ -4,8 +4,17 @@ import ProductCard from "@/components/shared/ProductCard/ProductCard";
 import demo from "@/assets/images/demo.jpg";
 import MyContainer from "@/components/ui/core/MyContainer/MyContainer";
 import MyButton from "@/components/ui/core/MyButton/MyButton";
+import Link from "next/link";
 
-const GenderWiseWatches = ({gender, title, description}:{gender: string, title: string, description: string}) => {
+const GenderWiseWatches = ({
+  gender,
+  title,
+  description,
+}: {
+  gender: string;
+  title: string;
+  description: string;
+}) => {
   const watches = [
     {
       id: "1",
@@ -86,15 +95,21 @@ const GenderWiseWatches = ({gender, title, description}:{gender: string, title: 
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {watches?.map((watch) => (
-            <ProductCard key={watch.id} product={watch} tag={gender === "MALE" ? "Men" : "Women"} />
+            <ProductCard
+              key={watch.id}
+              product={watch}
+              tag={gender === "MALE" ? "Men" : "Women"}
+            />
           ))}
         </div>
 
         {/* View All Button */}
         <div className="flex items-center justify-center mt-12">
-          <MyButton label="View All Watches" isArrow />
+          <Link href={"/shop"}>
+            <MyButton label="View All Watches" isArrow />
+          </Link>
         </div>
       </MyContainer>
     </section>

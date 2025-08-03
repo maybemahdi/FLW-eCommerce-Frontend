@@ -67,14 +67,14 @@ const ShopByBrands = () => {
         </div>
 
         {/* Brands Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 xs:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-6">
           {brands.map((brand) => (
             <div
               key={brand.id}
               onMouseEnter={() => setHoveredBrand(brand.id)}
               onClick={() => handleBrandClick(brand.id, brand.name)}
               className={`
-                relative group cursor-pointer bg-white border border-gray-200 rounded-xl transition-all duration-300 hover:shadow-lg hover:border-gray-300 hover:-translate-y-1 h-[300px]`}
+                relative group cursor-pointer bg-white border border-gray-200 rounded-xl transition-all duration-300 hover:shadow-lg hover:border-gray-300 hover:-translate-y-1 h-[250px] md:h-[300px]`}
             >
               {/* Featured Badge */}
               {/* {brand.featured && (

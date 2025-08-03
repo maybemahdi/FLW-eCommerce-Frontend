@@ -10,8 +10,8 @@ const HomePage = () => {
   return (
     <div>
       <Banner />
-      <PopularWatches />
       <NewArrivals />
+      <PopularWatches />
       <TrendingProduct />
       <GenderWiseWatches
         gender="MALE"

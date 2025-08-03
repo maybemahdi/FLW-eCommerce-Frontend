@@ -29,12 +29,8 @@ const Footer = () => {
   ];
 
   const customerService = [
-    { name: "Help Center", href: "#" },
-    { name: "Returns & Exchanges", href: "#" },
-    { name: "Shipping Info", href: "#" },
-    { name: "Track Your Order", href: "#" },
-    { name: "Gift Cards", href: "#" },
-    { name: "Bulk Orders", href: "#" },
+    { name: "Contact Us", href: "/contact" },
+    { name: "Store Locator", href: "#" },
   ];
 
   const legal = [
@@ -50,7 +46,7 @@ const Footer = () => {
       {/* Main footer content */}
       <div className="py-16">
         <MyContainer>
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
+          <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-12">
             {/* Brand Section */}
             <div className="lg:col-span-1">
               <div className="mb-8">

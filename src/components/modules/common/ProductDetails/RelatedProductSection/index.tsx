@@ -1,13 +1,11 @@
-"use client";
-
-import ProductCard from "@/components/shared/ProductCard/ProductCard";
+import React from "react";
 import demo from "@/assets/images/demo.jpg";
-import MyContainer from "@/components/ui/core/MyContainer/MyContainer";
+import ProductCard from "@/components/shared/ProductCard/ProductCard";
 import MyButton from "@/components/ui/core/MyButton/MyButton";
 import Link from "next/link";
 
-const NewArrivals = () => {
-  const newArrivals = [
+const RelatedProductSection = ({ productId }: { productId: string }) => {
+  const relatedWatches = [
     {
       id: "1",
       brand: "ROLEX",
@@ -72,37 +70,33 @@ const NewArrivals = () => {
       isNew: true,
     },
   ];
-
   return (
-    <section className="py-12 bg-gray-50">
-      <MyContainer>
-        {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-            New Arrivals
-          </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Discover the latest watches from top brands. Shop now and elevate
-            your style.
-          </p>
-        </div>
+    <div>
+      {/* Section Header */}
+      <div className="text-center mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+          Related Watches
+        </h2>
+        <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          Check out our collection of related watches that are perfect for you.
+        </p>
+      </div>
 
-        {/* Products Grid */}
-        <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {newArrivals?.map((watch) => (
-            <ProductCard key={watch.id} product={watch} tag={"New"} />
-          ))}
-        </div>
+      {/* Products Grid */}
+      <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {relatedWatches?.map((watch) => (
+          <ProductCard key={watch.id} product={watch} tag={"New"} />
+        ))}
+      </div>
 
-        {/* View All Button */}
-        <div className="flex items-center justify-center mt-12">
-          <Link href={"/shop"}>
-            <MyButton label="View All Watches" isArrow />
-          </Link>
-        </div>
-      </MyContainer>
-    </section>
+      {/* View All Button */}
+      <div className="flex items-center justify-center mt-12">
+        <Link href={"/shop"}>
+          <MyButton label="View All Watches" isArrow />
+        </Link>
+      </div>
+    </div>
   );
 };
 
-export default NewArrivals;
+export default RelatedProductSection;

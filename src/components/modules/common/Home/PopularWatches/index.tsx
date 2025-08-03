@@ -4,6 +4,7 @@ import ProductCard from "@/components/shared/ProductCard/ProductCard";
 import demo from "@/assets/images/demo.jpg";
 import MyContainer from "@/components/ui/core/MyContainer/MyContainer";
 import MyButton from "@/components/ui/core/MyButton/MyButton";
+import Link from "next/link";
 
 const PopularWatches = () => {
   const popularWatches = [
@@ -87,7 +88,7 @@ const PopularWatches = () => {
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {popularWatches?.map((watch) => (
             <ProductCard key={watch.id} product={watch} tag={"Popular"} />
           ))}
@@ -95,7 +96,9 @@ const PopularWatches = () => {
 
         {/* View All Button */}
         <div className="flex items-center justify-center mt-12">
-          <MyButton label="View All Watches" isArrow />
+          <Link href={"/shop"}>
+            <MyButton label="View All Watches" isArrow />
+          </Link>
         </div>
       </MyContainer>
     </section>

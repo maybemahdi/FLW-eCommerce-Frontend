@@ -147,24 +147,22 @@ const Navbar = () => {
                 </Link>
               </Dropdown>
 
-              <Dropdown menu={locatorMenu} trigger={["hover"]}>
-                <Link
-                  href="#"
-                  className="text-gray-700 hover:text-black font-medium flex items-center"
-                >
-                  LOCATOR <DownOutlined className="ml-1 text-xs" />
-                </Link>
-              </Dropdown>
+              <Link
+                href="/location"
+                className="text-gray-700 hover:text-black font-medium"
+              >
+                STORE LOCATION
+              </Link>
 
               <Link
-                href="#"
+                href="/about"
                 className="text-gray-700 hover:text-black font-medium"
               >
                 ABOUT US
               </Link>
 
               <Link
-                href="#"
+                href="contact"
                 className="text-gray-700 hover:text-black font-medium"
               >
                 CONTACT US

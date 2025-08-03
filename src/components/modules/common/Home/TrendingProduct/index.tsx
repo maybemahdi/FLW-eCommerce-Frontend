@@ -77,98 +77,87 @@ const TrendingProduct = () => {
 
         {/* Product Showcase */}
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-          <div className="grid lg:grid-cols-2 gap-0">
-            {/* Product Image */}
-            <div className="relative bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center h-[500px] lg:h-[600px]">
-              {/* Discount Badge */}
-              <div className="absolute top-6 left-6 z-10">
-                <span className="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-0">
+            {/* Product Image Section */}
+            <div className="relative flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200 w-full">
+              {/* Badges */}
+              <div className="absolute top-4 left-4 z-10">
+                <span className="bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold">
                   Hot
                 </span>
               </div>
 
-              {/* Floating Elements */}
-              <div className="absolute top-6 right-6 z-10 bg-white px-3 py-1 rounded-full">
-                <div className="flex items-center gap-1">
-                  <StarFilled className="text-yellow-400 text-sm" />
-                  <span className="text-sm font-semibold">5.00</span>
+              <div className="absolute top-4 right-4 z-10 bg-white px-2 py-1 rounded-full shadow">
+                <div className="flex items-center gap-1 text-xs">
+                  <StarFilled className="text-yellow-400" />
+                  <span className="font-semibold">5.00</span>
                 </div>
               </div>
 
-              {/* Product Image */}
-              <div className="relative group">
+              {/* Responsive Image */}
+              <div className="w-full max-w-[500px] aspect-square p-4 sm:p-6 md:p-10">
                 <img
                   src={product.image || "/placeholder.svg"}
                   alt={product.name}
-                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover rounded-lg transition-transform duration-500 hover:scale-105"
                 />
               </div>
             </div>
 
             {/* Product Details */}
-            <div className="p-8 lg:p-12 flex flex-col justify-center">
+            <div className="p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-center">
               {/* Brand */}
-              <div className="mb-4">
-                <span className="text-sm font-semibold text-gray-500 tracking-wider uppercase">
+              <div className="mb-3">
+                <span className="text-xs sm:text-sm font-semibold text-gray-500 uppercase tracking-wide">
                   {product.brand}
                 </span>
               </div>
 
               {/* Product Name */}
-              <h1 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4 leading-tight">
+              <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-3 leading-snug">
                 {product.name}
               </h1>
 
               {/* Model */}
-              <p className="text-gray-600 mb-6">Model: {product.model}</p>
-
-              {/* Rating & Reviews */}
-              {/* <div className="flex items-center gap-4 mb-6">
-                <div className="flex items-center gap-1">
-                  {[...Array(5)].map((_, i) => (
-                    <StarFilled key={i} className="text-yellow-400 text-sm" />
-                  ))}
-                </div>
-                <span className="text-sm text-gray-600">
-                  ({product.reviews} reviews)
-                </span>
-              </div> */}
+              <p className="text-sm sm:text-base text-gray-600 mb-5">
+                Model: {product.model}
+              </p>
 
               {/* Price */}
-              <div className="mb-8">
-                <div className="flex items-baseline gap-3 mb-2">
-                  <span className="text-3xl lg:text-4xl font-bold text-gray-900">
+              <div className="mb-6">
+                <div className="flex items-baseline gap-3 mb-1">
+                  <span className="text-2xl sm:text-3xl font-bold text-gray-900">
                     ₹{product.price.toLocaleString()}
                   </span>
-                  <span className="text-xl text-gray-500 line-through">
+                  <span className="text-lg sm:text-xl text-gray-500 line-through">
                     ₹{product.originalPrice.toLocaleString()}
                   </span>
                 </div>
-                <p className="text-green-600 font-semibold">
+                <p className="text-green-600 font-semibold text-sm sm:text-base">
                   You save ₹{savings.toLocaleString()}
                 </p>
               </div>
 
               {/* Quantity Selector */}
-              <div className="mb-8">
-                <label className="block text-sm font-semibold text-gray-700 mb-3">
+              <div className="mb-6">
+                <label className="block text-sm font-semibold text-gray-700 mb-2">
                   Quantity
                 </label>
-                <div className="flex items-center gap-4">
-                  <div className="flex items-center border border-gray-300 rounded-lg">
+                <div className="flex items-center gap-3">
+                  <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden">
                     <button
                       onClick={() => handleQuantityChange("decrease")}
-                      className="p-3 hover:bg-gray-50 transition-colors"
+                      className="p-2 sm:p-3 hover:bg-gray-50 transition-colors disabled:opacity-50"
                       disabled={quantity <= 1}
                     >
                       <MinusOutlined className="text-gray-600" />
                     </button>
-                    <span className="px-4 py-3 font-semibold min-w-[60px] text-center">
+                    <span className="px-4 py-2 sm:py-3 font-semibold min-w-[50px] text-center">
                       {quantity}
                     </span>
                     <button
                       onClick={() => handleQuantityChange("increase")}
-                      className="p-3 hover:bg-gray-50 transition-colors"
+                      className="p-2 sm:p-3 hover:bg-gray-50 transition-colors"
                     >
                       <PlusOutlined className="text-gray-600" />
                     </button>
@@ -177,11 +166,11 @@ const TrendingProduct = () => {
               </div>
 
               {/* Action Buttons */}
-              <div className="space-y-4 mb-8">
+              <div className="space-y-3">
                 <button
                   onClick={handleAddToCart}
                   disabled={isAddingToCart}
-                  className="w-full bg-white border-2 border-gray-900 text-gray-900 py-4 px-6 rounded-lg font-semibold text-lg hover:bg-gray-50 transition-all duration-200 flex items-center justify-center gap-3 disabled:opacity-70"
+                  className="w-full bg-white border-2 border-gray-900 text-gray-900 py-3 sm:py-4 px-5 rounded-lg font-semibold text-base sm:text-lg hover:bg-gray-50 transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-70"
                 >
                   {isAddingToCart ? (
                     <div className="w-5 h-5 border-2 border-gray-900 border-t-transparent rounded-full animate-spin" />
@@ -196,7 +185,7 @@ const TrendingProduct = () => {
                 <button
                   onClick={handleBuyNow}
                   disabled={isBuyingNow}
-                  className="w-full bg-gray-900 text-white py-4 px-6 rounded-lg font-semibold text-lg hover:bg-gray-800 transition-all duration-200 flex items-center justify-center gap-3 disabled:opacity-70"
+                  className="w-full bg-gray-900 text-white py-3 sm:py-4 px-5 rounded-lg font-semibold text-base sm:text-lg hover:bg-gray-800 transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-70"
                 >
                   {isBuyingNow ? (
                     <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />

@@ -19,7 +19,7 @@ export default {
         padding: "1.2rem",
       },
       screens: {
-        xs: "540px",
+        xs: "420px",
       },
     },
   },
