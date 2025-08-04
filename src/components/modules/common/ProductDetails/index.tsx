@@ -296,7 +296,7 @@ const ProductDetailsPage = ({ id }: { id: string }) => {
 
               {/* Action Buttons */}
               <>
-                <div className="flex gap-4">
+                <div className="flex flex-col xxs:flex-row gap-4">
                   <button
                     onClick={handleBuyNow}
                     disabled={isBuyingNow}

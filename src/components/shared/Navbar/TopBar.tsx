@@ -11,12 +11,14 @@ const TopBar = () => {
           <p>Since 2018</p>
           <div className="flex-1 flex justify-end gap-3">
             <p className="flex items-center gap-1">
-              <span>
+              <span className="sm:flex hidden">
                 <BiMobile />
               </span>{" "}
-              Hotline: +880-1900000000
+              Hotline: 01900000000
             </p>
-            <Link href="/contact" className="underline">Contact-us</Link>
+            <Link href="/contact" className="underline hidden sm:block">
+              Contact-us
+            </Link>
           </div>
         </div>
       </MyContainer>

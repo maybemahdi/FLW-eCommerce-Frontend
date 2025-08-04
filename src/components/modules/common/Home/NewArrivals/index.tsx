@@ -88,7 +88,7 @@ const NewArrivals = () => {
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 xxs:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {newArrivals?.map((watch) => (
             <ProductCard key={watch.id} product={watch} tag={"New"} />
           ))}

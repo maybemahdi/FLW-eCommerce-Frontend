@@ -47,7 +47,7 @@ const Footer = () => {
       {/* Main footer content */}
       <div className="py-16">
         <MyContainer>
-          <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-12">
+          <div className="grid grid-cols-1 xxs:grid-cols-2 lg:grid-cols-4 gap-12">
             {/* Brand Section */}
             <div className="lg:col-span-1">
               <div className="mb-8">
@@ -220,15 +220,11 @@ const Footer = () => {
         <ArrowUpOutlined className="text-lg" />
       </button>
       {/* whatsApp button */}
-      <button
-        className="fixed bottom-24 right-8 w-12 h-12 bg-green-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 z-50"
-      >
+      <button className="fixed bottom-24 right-8 w-12 h-12 bg-green-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 z-50">
         <WhatsAppOutlined className="text-lg" />
       </button>
       {/* Call button */}
-      <button
-        className="fixed bottom-40 right-8 w-12 h-12 bg-blue-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 z-50"
-      >
+      <button className="fixed bottom-40 right-8 w-12 h-12 bg-blue-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 z-50">
         <PhoneOutlined className="text-lg mx-auto" />
       </button>
 

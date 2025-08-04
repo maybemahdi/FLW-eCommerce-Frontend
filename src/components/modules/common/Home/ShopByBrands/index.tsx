@@ -68,7 +68,7 @@ const ShopByBrands = () => {
         </div>
 
         {/* Brands Grid */}
-        <div className="grid grid-cols-2 xs:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 xxs:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-6">
           {brands.map((brand) => (
             <div
               key={brand.id}
