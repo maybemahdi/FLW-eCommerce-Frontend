@@ -44,14 +44,23 @@ const Navbar = () => {
 
   const productsMenu: MenuProps = {
     items: [
-      { key: "mens", label: <Link href={`/shop?gender=male`}>Man's Watch</Link> },
-      { key: "womens", label: <Link href={`/shop?gender=female`}>Woman's Watch</Link> },
+      {
+        key: "mens",
+        label: <Link href={`/shop?gender=male`}>Man's Watch</Link>,
+      },
+      {
+        key: "womens",
+        label: <Link href={`/shop?gender=female`}>Woman's Watch</Link>,
+      },
     ],
   };
 
   const locatorMenu: MenuProps = {
     items: [
-      { key: "stores", label: <Link href={`/store-location`}>Store Location</Link> },
+      {
+        key: "stores",
+        label: <Link href={`/store-location`}>Store Location</Link>,
+      },
     ],
   };
 
@@ -101,9 +110,11 @@ const Navbar = () => {
 
               {/* Cart */}
               <div className="flex items-center space-x-2">
-                <button className="p-2">
-                  <ShoppingCartOutlined className="text-xl text-gray-600" />
-                </button>
+                <Link href={"/cart"}>
+                  <button className="p-2">
+                    <ShoppingCartOutlined className="text-xl text-gray-600" />
+                  </button>
+                </Link>
                 <div className="hidden sm:flex flex-col items-end">
                   <span className="text-xs text-gray-500">TOTAL PRICE</span>
                   <span className="text-sm font-semibold">₹ 0</span>
@@ -146,6 +157,13 @@ const Navbar = () => {
                   PRODUCTS <DownOutlined className="ml-1 text-xs" />
                 </Link>
               </Dropdown>
+
+              <Link
+                href="/shop"
+                className="text-gray-700 hover:text-black font-medium"
+              >
+                ACCESSORIES
+              </Link>
 
               <Link
                 href="/location"

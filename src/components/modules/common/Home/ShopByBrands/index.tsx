@@ -3,6 +3,7 @@
 import MyButton from "@/components/ui/core/MyButton/MyButton";
 import MyContainer from "@/components/ui/core/MyContainer/MyContainer";
 import { useState } from "react";
+import brandDemoLogo from "@/assets/images/brand.png";
 
 interface Brand {
   id: string;
@@ -86,7 +87,7 @@ const ShopByBrands = () => {
               {/* Brand Logo */}
               <div className="flex items-center justify-center h-full w-full mb-4">
                 <img
-                  src={brand.logo || "/placeholder.svg"}
+                  src={brandDemoLogo.src}
                   alt={`${brand.name} logo`}
                   className={`
                     w-full h-full object-cover filter transition-all duration-300 rounded-xl

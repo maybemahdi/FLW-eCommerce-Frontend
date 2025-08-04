@@ -8,11 +8,13 @@ import {
   ShoppingCartOutlined,
   StarFilled,
   ThunderboltOutlined,
+  WhatsAppOutlined,
 } from "@ant-design/icons";
 import type { TabsProps } from "antd";
 import { message, Tabs } from "antd";
 import { useState } from "react";
 import RelatedProductSection from "./RelatedProductSection";
+import CustomerReviews from "./CustomerReviews";
 
 const ProductDetailsPage = ({ id }: { id: string }) => {
   const [selectedImage, setSelectedImage] = useState(0);
@@ -180,6 +182,7 @@ const ProductDetailsPage = ({ id }: { id: string }) => {
   return (
     <div className="min-h-screen bg-gray-50">
       <MyContainer>
+        {/* image, details, specifications, description, action buttons */}
         <div className="bg-white rounded-lg shadow-sm overflow-hidden py-8">
           <div className="grid lg:grid-cols-2 gap-8">
             {/* Product Images */}
@@ -232,7 +235,7 @@ const ProductDetailsPage = ({ id }: { id: string }) => {
             </div>
 
             {/* Product Details */}
-            <div className="space-y-6">
+            <div className="space-y-3">
               {/* Product Title */}
               <div>
                 <h1 className="text-3xl font-bold text-gray-900 mb-2">
@@ -263,7 +266,7 @@ const ProductDetailsPage = ({ id }: { id: string }) => {
               </div>
 
               {/* Rating */}
-              {/* <div className="flex items-center gap-4">
+              <div className="flex items-center gap-4">
                 <div className="flex items-center gap-1">
                   {[...Array(5)].map((_, i) => (
                     <StarFilled key={i} className="text-yellow-400 text-sm" />
@@ -272,7 +275,7 @@ const ProductDetailsPage = ({ id }: { id: string }) => {
                 <span className="text-sm text-gray-600">
                   ({product.reviews} reviews)
                 </span>
-              </div> */}
+              </div>
 
               {/* Price */}
               <div className="space-y-2">
@@ -289,75 +292,71 @@ const ProductDetailsPage = ({ id }: { id: string }) => {
                     </span>
                   )}
                 </div>
-                {product.discount && (
-                  <p className="text-green-600 font-medium">
-                    You save ৳{" "}
-                    {(product.originalPrice! - product.price).toLocaleString()}{" "}
-                    ({product.discount}% off)
-                  </p>
-                )}
               </div>
 
               {/* Action Buttons */}
-              <div className="flex gap-4">
-                <button
-                  onClick={handleBuyNow}
-                  disabled={isBuyingNow}
-                  className="flex-1 bg-red-600 hover:bg-red-700 text-white py-3 px-6 rounded-lg font-semibold transition-colors duration-200 flex items-center justify-center gap-2 disabled:opacity-70"
-                >
-                  {isBuyingNow ? (
-                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                  ) : (
-                    <>
-                      <ThunderboltOutlined />
-                      Buy Now
-                    </>
-                  )}
-                </button>
+              <>
+                <div className="flex gap-4">
+                  <button
+                    onClick={handleBuyNow}
+                    disabled={isBuyingNow}
+                    className="flex-1 bg-red-600 hover:bg-red-700 text-white py-3 px-6 rounded-lg font-semibold transition-colors duration-200 flex items-center justify-center gap-2 disabled:opacity-70"
+                  >
+                    {isBuyingNow ? (
+                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                    ) : (
+                      <>
+                        <ThunderboltOutlined />
+                        Buy Now
+                      </>
+                    )}
+                  </button>
 
-                <button
-                  onClick={handleAddToCart}
-                  disabled={isAddingToCart}
-                  className="flex-1 bg-gray-900 hover:bg-gray-800 text-white py-3 px-6 rounded-lg font-semibold transition-colors duration-200 flex items-center justify-center gap-2 disabled:opacity-70"
-                >
-                  {isAddingToCart ? (
-                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                  ) : (
-                    <>
-                      <ShoppingCartOutlined />
-                      Add To Cart
-                    </>
-                  )}
-                </button>
-              </div>
-
-              {/* Additional Info */}
-              <div className="space-y-2 text-sm text-gray-600">
-                <div className="flex items-center gap-2">
-                  <CheckCircleOutlined className="text-green-500" />
-                  <span>Free delivery within Dhaka</span>
+                  <button
+                    onClick={handleAddToCart}
+                    disabled={isAddingToCart}
+                    className="flex-1 bg-gray-900 hover:bg-gray-800 text-white py-3 px-6 rounded-lg font-semibold transition-colors duration-200 flex items-center justify-center gap-2 disabled:opacity-70"
+                  >
+                    {isAddingToCart ? (
+                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                    ) : (
+                      <>
+                        <ShoppingCartOutlined />
+                        Add To Cart
+                      </>
+                    )}
+                  </button>
                 </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircleOutlined className="text-green-500" />
-                  <span>7 days return policy</span>
+                <div className="w-full">
+                  <button
+                    onClick={handleAddToCart}
+                    disabled={isAddingToCart}
+                    className="flex-1 w-full bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded-lg font-semibold transition-colors duration-200 flex items-center justify-center gap-2 disabled:opacity-70"
+                  >
+                    {isAddingToCart ? (
+                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                    ) : (
+                      <>
+                        <WhatsAppOutlined />
+                        Order on WhatsApp
+                      </>
+                    )}
+                  </button>
                 </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircleOutlined className="text-green-500" />
-                  <span>Authentic product guarantee</span>
-                </div>
+              </>
+              {/* Product Tabs */}
+              <div className="border-t border-gray-200 mt-8">
+                <Tabs
+                  defaultActiveKey="specifications"
+                  items={tabItems}
+                  size="large"
+                />
               </div>
             </div>
           </div>
-
-          {/* Product Tabs */}
-          <div className="border-t border-gray-200 mt-8">
-            <Tabs
-              defaultActiveKey="specifications"
-              items={tabItems}
-              size="large"
-            />
-          </div>
         </div>
+        {/* reviews */}
+        <CustomerReviews productId={id} productName={product.name} />
         {/* related product section */}
         <div className="mt-6 mb-10">
           <RelatedProductSection productId={id} />

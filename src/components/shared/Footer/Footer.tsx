@@ -12,6 +12,7 @@ import {
   EnvironmentOutlined,
   CheckCircleOutlined,
   ArrowUpOutlined,
+  WhatsAppOutlined,
 } from "@ant-design/icons";
 
 const Footer = () => {
@@ -217,6 +218,18 @@ const Footer = () => {
         className="fixed bottom-8 right-8 w-12 h-12 bg-gradient-to-r from-primary to-purple-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 z-50"
       >
         <ArrowUpOutlined className="text-lg" />
+      </button>
+      {/* whatsApp button */}
+      <button
+        className="fixed bottom-24 right-8 w-12 h-12 bg-green-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 z-50"
+      >
+        <WhatsAppOutlined className="text-lg" />
+      </button>
+      {/* Call button */}
+      <button
+        className="fixed bottom-40 right-8 w-12 h-12 bg-blue-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 z-50"
+      >
+        <PhoneOutlined className="text-lg mx-auto" />
       </button>
 
       {/* Background decoration */}

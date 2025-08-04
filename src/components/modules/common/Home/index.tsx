@@ -5,6 +5,7 @@ import NewArrivals from "./NewArrivals";
 import TrendingProduct from "./TrendingProduct";
 import GenderWiseWatches from "./GenderWiseWatches";
 import ShopByBrands from "./ShopByBrands";
+import EnhancedTrustBadges from "./EnhancedTrustBadges";
 
 const HomePage = () => {
   return (
@@ -24,6 +25,7 @@ const HomePage = () => {
         description="The best watches for women."
       />
       <ShopByBrands />
+      <EnhancedTrustBadges />
     </div>
   );
 };
