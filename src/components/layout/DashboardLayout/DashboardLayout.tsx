@@ -13,12 +13,18 @@ import {
   Briefcase,
   CircleGauge,
   DollarSign,
+  File,
   FileCode,
+  FileTerminal,
   History,
+  List,
+  ListFilter,
   LogOut,
   Menu,
   MonitorSmartphone,
+  Plus,
   Search,
+  Settings,
   ShieldCheck,
   User,
   UserCheck,
@@ -39,26 +45,17 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
   const pathname = usePathname();
   const [customRole, setCustomRole] = useState<string>(
-    pathname?.startsWith("/super-admin")
-      ? "SUPER_ADMIN"
-      : pathname?.startsWith("/admin")
+    pathname?.startsWith("/admin")
       ? "ADMIN"
-      : pathname?.startsWith("/sub-admin")
-      ? "SUB_ADMIN"
-      : pathname?.startsWith("/supervisor")
-      ? "SUPERVISOR"
-      : pathname?.startsWith("/employee")
-      ? "EMPLOYEE"
+      : pathname?.startsWith("/user")
+      ? "USER"
       : ""
   );
   const role = user?.role || customRole;
 
   const roleRoutes: Record<string, string> = {
-    SUPER_ADMIN: "super-admin",
     ADMIN: "admin",
-    SUB_ADMIN: "sub-admin",
-    SUPERVISOR: "supervisor",
-    EMPLOYEE: "employee",
+    USER: "user",
   };
 
   const handleCustomRoleChange = (value: string) => {
@@ -70,30 +67,6 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   };
 
   let menuItems;
-  if (role === "SUPER_ADMIN") {
-    menuItems = [
-      {
-        icon: TbLayoutDashboardFilled,
-        text: "Dashboard",
-        path: "/super-admin",
-      },
-      {
-        icon: Users,
-        text: "Total Users",
-        path: "/super-admin/total-user",
-      },
-      {
-        icon: DollarSign,
-        text: "Total Earnings",
-        path: "/super-admin/total-earnings",
-      },
-      {
-        icon: History,
-        text: "Subscription History",
-        path: "/super-admin/subscription-history",
-      },
-    ];
-  }
   if (role === "ADMIN") {
     menuItems = [
       {
@@ -103,146 +76,52 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
       },
       {
         icon: Briefcase,
-        text: "Projects",
-        path: "/admin/projects",
+        text: "Products",
+        path: "/admin/products",
       },
       {
-        icon: FileCode,
-        text: "Cost Code",
-        path: "/admin/cost-code",
+        icon: Plus,
+        text: "Add Product",
+        path: "/admin/products/create",
       },
       {
-        icon: MonitorSmartphone,
-        text: "Equipment",
-        path: "/admin/equipment",
+        icon: List,
+        text: "Categories",
+        path: "/admin/categories",
       },
       {
-        icon: ShieldCheck,
-        text: "Sub Admin",
-        path: "/admin/sub-admin",
+        icon: ListFilter,
+        text: "Brands",
+        path: "/admin/brands",
       },
       {
-        icon: Users2,
-        text: "Supervisor",
-        path: "/admin/supervisor",
+        icon: FileTerminal,
+        text: "Metadata",
+        path: "/admin/metadata",
       },
       {
-        icon: UserCheck,
-        text: "Employee",
-        path: "/admin/employee",
+        icon: File,
+        text: "Banners",
+        path: "/admin/banners",
+      },
+      {
+        icon: Settings,
+        text: "Settings",
+        path: "/admin/settings",
       },
     ];
   }
-  if (role === "SUB_ADMIN") {
+  if (role === "USER") {
     menuItems = [
       {
         icon: TbLayoutDashboardFilled,
         text: "Dashboard",
-        path: "/sub-admin",
+        path: "/user/my-orders",
       },
       {
-        icon: Briefcase,
-        text: "Projects",
-        path: "/sub-admin/projects",
-      },
-      {
-        icon: FileCode,
-        text: "Cost Code",
-        path: "/sub-admin/cost-code",
-      },
-      {
-        icon: MonitorSmartphone,
-        text: "Equipment",
-        path: "/sub-admin/equipment",
-      },
-      {
-        icon: Users2,
-        text: "Supervisor",
-        path: "/sub-admin/supervisor",
-      },
-      {
-        icon: UserCheck,
-        text: "Employee",
-        path: "/sub-admin/employee",
-      },
-      {
-        icon: CircleGauge,
-        text: "PTO Requests",
-        path: "/sub-admin/pto",
-      },
-    ];
-  }
-  if (role === "SUPERVISOR") {
-    menuItems = [
-      {
-        icon: TbLayoutDashboardFilled,
-        text: "Dashboard",
-        path: "/supervisor",
-      },
-      {
-        icon: BsPlusCircleDotted,
-        text: "Add PTO request",
-        path: "/supervisor/add-pto-request",
-      },
-      {
-        icon: BsPlusCircleDotted,
-        text: "Add purchase",
-        path: "/supervisor/add-purchase",
-      },
-      {
-        icon: PiGitPullRequestLight,
-        text: "Employee PTO request",
-        path: "/supervisor/employe-pto-request",
-      },
-      {
-        icon: PiGitPullRequestLight,
-        text: "My PTO request",
-        path: "/supervisor/my-pto-request",
-      },
-      {
-        icon: BiPurchaseTag,
-        text: "My purchase",
-        path: "/supervisor/my-purchase",
-      },
-    ];
-  }
-  if (role === "EMPLOYEE") {
-    menuItems = [
-      {
-        icon: TbLayoutDashboardFilled,
-        text: "Dashboard",
-        path: "/employee",
-      },
-      {
-        icon: BsPlusCircleDotted,
-        text: "Add PTO request",
-        path: "/employee/add-pto-request",
-      },
-      {
-        icon: BsPlusCircleDotted,
-        text: "Add Project entry",
-        path: "/employee/add-project-entry",
-      },
-      {
-        icon: BsPlusCircleDotted,
-        text: "Add purchase",
-        path: "/employee/add-purchase",
-      },
-
-      {
-        icon: SiOpenproject,
-        text: "All Projects",
-        path: "/employee/all-project",
-      },
-      {
-        icon: PiGitPullRequestLight,
-        text: "My PTO request",
-        path: "/employee/my-pto-request",
-      },
-      {
-        icon: BiPurchaseTag,
-        text: "My purchase",
-        path: "/employee/my-purchase",
+        icon: User,
+        text: "Profile",
+        path: "/user/profile",
       },
     ];
   }
@@ -251,7 +130,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
     <ConfigProvider
       theme={{
         token: {
-          colorPrimary: "#1E6A92",
+          colorPrimary: "#111827",
         },
       }}
     >
@@ -262,9 +141,9 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
         }`}
       >
         <div className="flex items-center justify-between h-16 px-4">
-          <Link href="/" className="flex items-center justify-center">
-            {/* <h4 className="text-2xl font-semibold">ConciergeFlow</h4> */}
-            <Image src={logo.src} width={100} height={100} alt="logo" />
+          <Link href="/" className="flex items-center justify-center mx-auto">
+            <h4 className="text-2xl font-semibold">TIME ZONE</h4>
+            {/* <Image src={logo.src} width={100} height={100} alt="logo" /> */}
           </Link>
           <button
             onClick={() => setSidebarOpen(false)}
@@ -328,25 +207,22 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
             </h4>
 
             {/* changing role on frontend for testing */}
-            <div className="hidden md:flex flex-1 max-w-md ml-4">
+            {/* <div className="hidden md:flex flex-1 max-w-md ml-4">
               <div className="relative w-full">
                 <Select
                   value={customRole}
                   style={{ width: 150 }}
                   onChange={handleCustomRoleChange}
                   options={[
-                    { value: "SUPER_ADMIN", label: "Super Admin" },
                     { value: "ADMIN", label: "Admin" },
-                    { value: "SUB_ADMIN", label: "Sub Admin" },
-                    { value: "SUPERVISOR", label: "Supervisor" },
-                    { value: "EMPLOYEE", label: "Employee" },
+                    { value: "USER", label: "User" },
                   ]}
                 />
               </div>
-            </div>
+            </div> */}
 
             {/* Search */}
-            <div className="hidden md:flex flex-1 max-w-md ml-4">
+            {/* <div className="hidden md:flex flex-1 max-w-md ml-4">
               <div className="relative w-full">
                 <div className="absolute inset-y-0 left-0 flex items-center pl-3">
                   <Search className="w-5 h-5 text-gray-400" />
@@ -357,7 +233,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
                   className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                 />
               </div>
-            </div>
+            </div> */}
 
             {/* User Actions */}
             <div className="flex items-center space-x-4">
